@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,6 +30,15 @@ class HomeScreen extends StatelessWidget {
               }));
             },
           ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.add_location), label: 'Cidades do Paraná'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.verified_user), label: 'Usuário')
         ],
       ),
     );
