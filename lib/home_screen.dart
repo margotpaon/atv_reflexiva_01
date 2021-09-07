@@ -1,3 +1,5 @@
+import 'package:atv_reflexiva/cidades_page.dart';
+import 'package:atv_reflexiva/usuario_page.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -9,36 +11,8 @@ class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
 
   final tabs = [
-    // Página lista de cidades
-    Center(
-      child: ListView(
-        children: <Widget>[
-          Container(
-            child: Center(
-              child: Text('Curitiba 1200'),
-            ),
-          ),
-          Container(
-            child: Center(
-              child: Text('Londrina 135'),
-            ),
-          ),
-          Container(
-            child: Center(
-              child: Text('Maringa 12'),
-            ),
-          ),
-          Container(
-            child: Center(
-              child: Text('Pinhal 35460'),
-            ),
-          ),
-        ],
-      ),
-    ),
-
-    //Página pega nome do usuarios
-    Center(child: Text('Usuário'))
+    CidadesPage(),
+    UsuarioPage(),
   ];
 
   @override
@@ -57,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   appBar: AppBar(title: Text('Voltar')),
                   body: Center(
                     child: Text(
-                      'Aqui é sobre alguma coisa',
+                      'App criando por Margot Paon de Andrade Garcia / Curso Desenvolvimento Mobile ',
                       style: TextStyle(fontSize: 24),
                     ),
                   ),
@@ -67,21 +41,26 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: tabs[_currentIndex],
+      body: IndexedStack(
+        index: _currentIndex,
+        children: tabs,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         iconSize: 40,
+        selectedFontSize: 16,
+        unselectedFontSize: 12,
         items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.add_location), label: 'Cidades do Paraná'),
+              icon: Icon(Icons.add_location),
+              label: 'Cidades do Paraná',
+              backgroundColor: Colors.blue),
           BottomNavigationBarItem(
-              icon: Icon(Icons.verified_user), label: 'Usuário')
+              icon: Icon(Icons.verified_user),
+              label: 'Usuário',
+              backgroundColor: Colors.green)
         ],
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
+        onTap: (index) => setState(() => _currentIndex = index),
       ),
     );
   }
