@@ -73,27 +73,23 @@ class CidadesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-          itemCount: cidades.length,
-          itemBuilder: (_, index) => Table(
-                children: [
-                  TableRow(children: [
-                    Container(
+        body: ListView.builder(
+            itemCount: cidades.length,
+            itemBuilder: (_, index) => Row(children: [
+                  Container(
+                    width: 20,
+                    child: Text('$index'),
+                  ),
+                  Row(children: [
+                    Image.asset(
+                      bandeira.elementAt(index),
                       width: 30,
-                      child: Text('$index'),
+                      height: 30,
                     ),
-                    Row(children: [
-                      Image.asset(
-                        bandeira.elementAt(index),
-                        width: 30,
-                        height: 30,
-                      ),
-                      Text(cidades.elementAt(index))
-                    ]),
-                    Text(population.elementAt(index))
-                  ])
-                ],
-              )),
-    );
+                    Container(
+                        width: 180, child: Text(cidades.elementAt(index) + " "))
+                  ]),
+                  Text("População: " + population.elementAt(index))
+                ])));
   }
 }
