@@ -8,7 +8,7 @@
 
 # Para Execução do projeto o Flutter e o Dart precisam estar instalados
 - Além do Flutter e do Dart pelo menos o navegador Google Chrome tambem deve estar instalado
-- No seu terminal ou CMD entre na pasta do projeto execute o comando ***flutter run -d chrome_*** para executar o projeto
+- No seu terminal ou CMD entre na pasta do projeto execute o comando ***flutter run -d chrome*** para executar o projeto
   
 1. – Características da Atividade Prática 
   
